@@ -1,9 +1,9 @@
-const {sendTrx} = require('../services/send');
+const {sendTrx} = require('../services/sendTRX');
 
 async function sendRoute(fastify, option){
-    fastify.post('/sendTron', async(request, reply)=>{
+    fastify.post('/sendTronTRX', async(request, reply)=>{
         try{
-            const {addressTo, amount, ownerAddress, privateKey} = request.query;
+            const {addressTo, amount, ownerAddress, privateKey} = request.body;
             const result = await sendTrx(addressTo, amount, ownerAddress, privateKey);
             reply.send(result);
         }catch(error){
