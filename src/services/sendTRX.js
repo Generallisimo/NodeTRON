@@ -3,7 +3,7 @@ const TronWeb = require('tronweb');
 async function sendTrx(addressTo, amount, ownerAddress, privateKey){
     try{
         const tronWeb = new TronWeb({
-            fullHost: 'https://api.nileex.io',
+            fullHost: 'https://api.shasta.trongrid.io',
             privateKey: privateKey
         });
         const trxBalance = await tronWeb.trx.getBalance(ownerAddress);
@@ -14,6 +14,7 @@ async function sendTrx(addressTo, amount, ownerAddress, privateKey){
         const transaction = await tronWeb.transactionBuilder.sendTrx(addressTo, tronWeb.toSun(amount), ownerAddress);
         const signed = await tronWeb.trx.sign(transaction);
         const broadcast = await tronWeb.trx.sendRawTransaction(signed);
+        console.log(transaction, signed, broadcast);
         return broadcast;
     }catch(error){
         console.error(`Error during transaction: ${error}`);
