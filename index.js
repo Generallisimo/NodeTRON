@@ -22,3 +22,8 @@ fastify.listen({ port: 3000 }, (err, address) => {
     }
     fastify.log.info(`Server listening at ${address}`);
 });
+
+fastify.ready(err => {
+    if (err) throw err;
+    console.log(fastify.printRoutes());
+});
