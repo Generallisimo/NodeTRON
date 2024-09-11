@@ -4,6 +4,7 @@ const sendRouteUSDT = require('./src/routes/sendRouteUsdt');
 const checkRouteUSDT = require('./src/routes/checkRouteUsdt');
 const createWallet = require('./src/routes/createRouteWallet');
 const checkTransaction = require('./src/routes/checkTransactionRoute');
+const checkRouteTXID = require('./src/routes/checkRouteTXID');
 
 const fastify = Fastify({ logger: true });
 
@@ -12,6 +13,7 @@ fastify.register(sendRouteUSDT);
 fastify.register(checkRouteUSDT);
 fastify.register(createWallet);
 fastify.register(checkTransaction);
+fastify.register(checkRouteTXID);
 
 
 
