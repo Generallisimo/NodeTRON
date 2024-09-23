@@ -10,6 +10,7 @@ async function checkRouteTXID(fastify) {
             }
 
             const isSuccess = await checkTXID(transactionHash);
+            console.log(isSuccess)
             reply.send({ success: isSuccess });
         } catch (e) {
             reply.status(500).send({

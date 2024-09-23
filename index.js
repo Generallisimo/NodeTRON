@@ -17,13 +17,14 @@ fastify.register(checkRouteTXID);
 
 
 
-fastify.listen({ port: 3000 }, (err, address) => {
+fastify.listen({ host: '0.0.0.0', port: 3000 }, (err, address) => {
     if (err) {
         fastify.log.error(err);
         process.exit(1);
     }
     fastify.log.info(`Server listening at ${address}`);
 });
+
 
 fastify.ready(err => {
     if (err) throw err;
