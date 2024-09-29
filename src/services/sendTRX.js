@@ -17,7 +17,7 @@ async function sendTrx(addressTo, amount, ownerAddress, privateKey){
         console.log(transaction, signed, broadcast);
         return broadcast;
     }catch(error){
-        console.error(`Error during transaction: ${error}`);
+        console.error(`Error during transaction with trx: ${error}`);
         throw new Error(`Transaction err: ${error.message}`);
     };
 }

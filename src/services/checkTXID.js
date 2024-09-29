@@ -7,7 +7,6 @@ async function checkTXID(transactionHash, totalTimeout = 300000, delay = 10000) 
     
     while (Date.now() - startTime < totalTimeout) {
         try {
-            // Отправка POST-запроса к API
             const response = await axios.post(url, { value: transactionHash });
             // console.log('Response data:', response.data);
 
